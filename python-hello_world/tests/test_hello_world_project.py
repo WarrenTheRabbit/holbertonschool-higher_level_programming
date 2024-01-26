@@ -9,7 +9,7 @@ def test_that_task0_file_exists():
         assert True
 
 def test_that_task0_file_has_correct_shebang():
-    expected = '#!/usr/bin/env python3\n'
+    expected = '#!/usr/bin/python3\n'
     with open(FILE) as file:
         first_line = file.readline()
         assert first_line == expected

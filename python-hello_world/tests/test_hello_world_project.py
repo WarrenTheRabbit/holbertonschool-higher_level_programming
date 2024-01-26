@@ -27,3 +27,13 @@ def test_that_script_uses_print_function():
                 assert True
                 return
     assert False
+def test_that_ast_of_task0_file_contains_print():
+    with open(FILE) as file:
+        tree = ast.parse(file.read())
+        for node in ast.walk(tree):
+            if (isinstance(node, ast.Call) 
+                and isinstance(node.func, ast.Name) 
+                and node.func.id == 'print'):
+                assert True
+                return
+    assert False

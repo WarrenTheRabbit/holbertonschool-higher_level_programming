@@ -38,7 +38,7 @@ def test_that_ast_of_task0_file_contains_print():
     assert False
     
 def test_that_task0_file_outputs_correct_string():
-    expected = "Programming is like building a multilingual puzzle\n"
+    expected = "\"Programming is like building a multilingual puzzle\n"
     result = subprocess.run([f"./{FILE}"], capture_output=True, text=True)
     assert result.stdout == expected
     

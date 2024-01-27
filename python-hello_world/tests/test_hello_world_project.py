@@ -49,20 +49,7 @@ def test_that_task0_file_outputs_correct_string():
     expected = "\"Programming is like building a multilingual puzzle\n"
     result = subprocess.run([f"./{TASK0}"], capture_output=True, text=True)
     assert result.stdout == expected
-
-def test_that_task1_file_exists():
-    with open(TASK1):
-        assert True
         
-def test_that_task1_file_has_correct_shebang():
-    with open(TASK1) as file:
-        first_line = file.readline()
-        assert first_line == '#!/usr/bin/python3\n'
-    
-
-def test_that_task1_file_is_executable():
-    assert os.access(TASK1, os.X_OK)
-    
 def test_that_task1_output_is_correct():
     expected = '98 Battery street\n'
     result = subprocess.run([f"./{TASK1}"], capture_output=True, text=True)

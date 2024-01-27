@@ -100,6 +100,10 @@ def test_that_task_file_has_required_number_of_lines(file, expected_line_count):
         lines = opened_file.readlines()
         assert len(lines) == expected_line_count
         
+def test_that_task_file_conforms_to_pycode_style(task_file):
+    result = subprocess.run(["pycodestyle", task_file], capture_output=True)
+    assert result.returncode == 0, \
+        f"pycodestyle found errors in {task_file}:\n{result.stdout}"     
 
 @pytest.mark.parametrize(("file", "expected_output"),
                          zip(task_files, task_outputs))

@@ -12,6 +12,9 @@ task_files = [TASK0, TASK1]
 def task_file(request):
     return request.param
 
+#########################################
+# Tests that all task files must pass
+#########################################
 def test_that_task_file_exists(task_file):
     with open(task_file):
         assert True
@@ -25,6 +28,9 @@ def test_that_task_file_has_python_shebang(task_file):
 def test_that_task_file_is_executable(task_file):
     assert os.access(TASK0, os.X_OK)
 
+#########################################
+# Tests specific to task0
+######################################### 
 def test_that_source_of_task0_file_contains_print():
     expected = 'print('
     with open(TASK0) as file:
@@ -50,6 +56,9 @@ def test_that_task0_file_outputs_correct_string():
     result = subprocess.run([f"./{TASK0}"], capture_output=True, text=True)
     assert result.stdout == expected
         
+#########################################
+# Tests specific to task1
+#########################################        
 def test_that_task1_output_is_correct():
     expected = '98 Battery street\n'
     result = subprocess.run([f"./{TASK1}"], capture_output=True, text=True)
@@ -85,3 +94,24 @@ def test_that_ast_of_task1_uses_fstring():
             break
     assert found_correctly_interpolated_fstring, \
         "No evidence of f-string with variable 'number' found in task1."
+        
+#########################################
+# Tests specific to task2
+#########################################
+
+
+#########################################
+# Tests specific to task3
+#########################################
+
+
+
+#########################################
+# Tests specific to task4
+#########################################
+
+
+
+#########################################
+# Tests specific to task5
+#########################################

@@ -3,6 +3,7 @@ import ast
 import subprocess
 
 TASK0 = "2-print.py"
+TASK1 = "3-print_number.py"
 
 def test_that_task0_file_exists():
     with open(TASK0):
@@ -41,5 +42,9 @@ def test_that_task0_file_outputs_correct_string():
     expected = "\"Programming is like building a multilingual puzzle\n"
     result = subprocess.run([f"./{TASK0}"], capture_output=True, text=True)
     assert result.stdout == expected
+
+def test_that_task1_file_exists():
+    with open(TASK1):
+        assert True
     
     

@@ -12,14 +12,14 @@ TASK5 = "7-edges.py"
 TASK6 = "8-concat_edges.py"
 TASK7 = "9-easter_egg.py"
 
-completed = 4
+completed = 5
 
 #########################################
 # Test Data
 #########################################
 
 task_files = [TASK0, TASK1, TASK2, TASK3, TASK4, TASK5, TASK6, TASK7][:completed]
-required_task_file_line_counts = [None, 3][:completed]
+required_task_file_line_counts = [None, 3, None, 5, 5][:completed]
 task_outputs = [
     "\"Programming is like building a multilingual puzzle\n",
     "98 Battery street\n",

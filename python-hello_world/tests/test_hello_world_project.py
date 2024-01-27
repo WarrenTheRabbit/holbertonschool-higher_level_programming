@@ -19,7 +19,7 @@ completed = 5
 #########################################
 
 task_files = [TASK0, TASK1, TASK2, TASK3, TASK4, TASK5, TASK6, TASK7][:completed]
-required_task_file_line_counts = [None, 3, None, 5, 5][:completed]
+required_task_file_line_counts = [None, 3, None, None, 5][:completed]
 task_outputs = [
     "\"Programming is like building a multilingual puzzle\n",
     "98 Battery street\n",

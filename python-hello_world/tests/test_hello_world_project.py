@@ -45,6 +45,10 @@ def test_that_task_file_has_required_number_of_lines(file, expected_line_count):
     with open(file) as opened_file:
         lines = opened_file.readlines()
         assert len(lines) == expected_line_count
+def test_that_task_file_output_is_correct(run_script):
+    expected_output = '98 Battery street\n'
+    actual_output = run_script(f"./{TASK1}")
+    assert actual_output == expected_output
 
 #########################################
 # Tests specific to task0

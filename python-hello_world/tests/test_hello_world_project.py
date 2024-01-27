@@ -5,8 +5,14 @@ import subprocess
 
 TASK0 = "2-print.py"
 TASK1 = "3-print_number.py"
-
-task_files = [TASK0, TASK1]
+@pytest.fixture
+def run_script():
+    def _run_script(script_name):
+        result = subprocess.run([f"./{script_name}"], 
+                                capture_output=True,
+                                text=True)
+        return result.stdout
+    return _run_script
 required_task_file_line_counts = [None, 3]
 
 @pytest.fixture(params=task_files)

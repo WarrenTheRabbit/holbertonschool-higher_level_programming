@@ -16,9 +16,9 @@ def test_that_task_files_exist(task_file):
     with open(task_file):
         assert True
 
-def test_that_task0_file_has_correct_shebang():
+def test_that_task_files_have_correct_shebang(task_file):
     expected = '#!/usr/bin/python3\n'
-    with open(TASK0) as file:
+    with open(task_file) as file:
         first_line = file.readline()
         assert first_line == expected
 

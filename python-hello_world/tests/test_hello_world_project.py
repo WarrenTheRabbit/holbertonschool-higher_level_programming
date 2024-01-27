@@ -53,5 +53,6 @@ def test_that_task1_file_has_correct_shebang():
         assert first_line == '#!/usr/bin/python3\n'
     
 
-    
+def test_that_task1_file_is_executable():
+    assert os.access(TASK1, os.X_OK)
     

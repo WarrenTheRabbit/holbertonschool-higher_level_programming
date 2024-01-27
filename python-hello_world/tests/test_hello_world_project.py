@@ -20,7 +20,7 @@ completed = 2
 
 task_files = [TASK0, TASK1, TASK2, TASK3, TASK4, TASK5, TASK6, TASK7][:completed]
 required_task_file_line_counts = [None, 3][:completed]
-required_output = [
+task_outputs = [
     "\"Programming is like building a multilingual puzzle\n",
     "98 Battery street\n",
     "Float: 3.14\n",
@@ -100,9 +100,11 @@ def test_that_task_file_has_required_number_of_lines(file, expected_line_count):
         lines = opened_file.readlines()
         assert len(lines) == expected_line_count
         
-def test_that_task_file_output_is_correct(run_script):
-    expected_output = '98 Battery street\n'
-    actual_output = run_script(f"./{TASK1}")
+
+@pytest.mark.parametrize(("file", "expected_output"),
+                         zip(task_files, task_outputs))
+def test_that_task_file_output_is_correct(run_script, file, expected_output):
+    actual_output = run_script(f"./{file}")
     assert actual_output == expected_output
 
 #########################################

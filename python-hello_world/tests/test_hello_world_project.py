@@ -74,3 +74,20 @@ def test_that_source_of_task1_uses_fstring():
                 return
     assert False
     
+def test_that_ast_of_task1_uses_fstring():
+    found_correctly_interpolated_fstring = False
+    with open(TASK1) as file:
+        tree = ast.parse(file.read())
+    
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.Call)
+            and node.func.id == 'print'
+            and any(isinstance(node, ast.JoinedStr) 
+                    for node 
+                    in node.args)
+            and node.args[0].values[0].value.id == 'number'
+        ):
+            found_correctly_interpolated_fstring = True
+            break
+    assert found_correctly_interpolated_fstring, \
+        "No evidence of f-string with variable 'number' found in task1."

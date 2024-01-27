@@ -46,5 +46,12 @@ def test_that_task0_file_outputs_correct_string():
 def test_that_task1_file_exists():
     with open(TASK1):
         assert True
+        
+def test_that_task1_file_has_correct_shebang():
+    with open(TASK1) as file:
+        first_line = file.readline()
+        assert first_line == '#!/usr/bin/python3\n'
+    
+
     
     

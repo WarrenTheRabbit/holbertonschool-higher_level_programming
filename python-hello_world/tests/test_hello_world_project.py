@@ -7,6 +7,7 @@ TASK0 = "2-print.py"
 TASK1 = "3-print_number.py"
 
 task_files = [TASK0, TASK1]
+required_task_file_line_counts = [None, 3]
 
 @pytest.fixture(params=task_files)
 def task_file(request):
@@ -27,6 +28,17 @@ def test_that_task_file_has_python_shebang(task_file):
 
 def test_that_task_file_is_executable(task_file):
     assert os.access(TASK0, os.X_OK)
+
+@pytest.mark.parametrize(("file", "expected_line_count"), 
+                         [(file, expected_line_count)
+                          for file, expected_line_count
+                          in zip(task_files, required_task_file_line_counts)
+                          if expected_line_count is not None
+                         ])
+def test_that_task_file_has_required_number_of_lines(file, expected_line_count):       
+    with open(file) as opened_file:
+        lines = opened_file.readlines()
+        assert len(lines) == expected_line_count
 
 #########################################
 # Tests specific to task0
@@ -63,11 +75,6 @@ def test_that_task1_output_is_correct():
     expected = '98 Battery street\n'
     result = subprocess.run([f"./{TASK1}"], capture_output=True, text=True)
     assert result.stdout == expected
-    
-def test_that_task1_file_is_three_lines():
-    with open(TASK1) as file:
-        lines = file.readlines()
-        assert len(lines) == 3
     
 def test_that_source_of_task1_uses_fstring():
     with open(TASK1) as file:

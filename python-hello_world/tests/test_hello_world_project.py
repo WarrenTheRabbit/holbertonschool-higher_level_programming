@@ -1,3 +1,4 @@
+import pytest
 import os
 import ast
 import subprocess
@@ -5,8 +6,14 @@ import subprocess
 TASK0 = "2-print.py"
 TASK1 = "3-print_number.py"
 
-def test_that_task0_file_exists():
-    with open(TASK0):
+task_files = [TASK0, TASK1]
+
+@pytest.fixture(params=task_files)
+def task_file(request):
+    return request.param
+
+def test_that_task_files_exist(task_file):
+    with open(task_file):
         assert True
 
 def test_that_task0_file_has_correct_shebang():

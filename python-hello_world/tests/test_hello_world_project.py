@@ -61,6 +61,11 @@ def test_that_task1_output_is_correct():
     result = subprocess.run([f"./{TASK1}"], capture_output=True, text=True)
     assert result.stdout == expected
     
+def test_that_task1_file_is_three_lines():
+    with open(TASK1) as file:
+        lines = file.readlines()
+        assert len(lines) == 3
+    
 def test_that_source_of_task1_uses_fstring():
     with open(TASK1) as file:
         for line in file:

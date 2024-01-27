@@ -56,3 +56,9 @@ def test_that_task1_file_has_correct_shebang():
 def test_that_task1_file_is_executable():
     assert os.access(TASK1, os.X_OK)
     
+def test_that_task1_output_is_correct():
+    expected = '98 Battery street\n'
+    result = subprocess.run([f"./{TASK1}"], capture_output=True, text=True)
+    assert result.stdout == expected
+    
+

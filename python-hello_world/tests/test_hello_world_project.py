@@ -12,7 +12,7 @@ TASK5 = "7-edges.py"
 TASK6 = "8-concat_edges.py"
 TASK7 = "9-easter_egg.py"
 
-completed = 2
+completed = 4
 
 #########################################
 # Test Data
@@ -24,8 +24,7 @@ task_outputs = [
     "\"Programming is like building a multilingual puzzle\n",
     "98 Battery street\n",
     "Float: 3.14\n",
-    "Holberton SchoolHolberton SchoolHolberton School\n\
-    Holberton\n",
+    "Holberton SchoolHolberton SchoolHolberton School\nHolberton\n",
     "Welcome to Holberton School!\n",
     """First 3 letters: Hol
 Last 2 letters: on
@@ -72,6 +71,7 @@ def run_script():
 @pytest.fixture(params=task_files)
 def task_file(request):
     return request.param
+    
 
 #########################################
 # Tests that all task files must pass

@@ -22,7 +22,7 @@ def test_that_task_files_have_correct_shebang(task_file):
         first_line = file.readline()
         assert first_line == expected
 
-def test_that_task0_file_is_executable():
+def test_that_task_files_are_executable(task_file):
     assert os.access(TASK0, os.X_OK)
 
 def test_that_source_of_task0_file_contains_print():

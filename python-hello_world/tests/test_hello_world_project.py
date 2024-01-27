@@ -12,17 +12,17 @@ task_files = [TASK0, TASK1]
 def task_file(request):
     return request.param
 
-def test_that_task_files_exist(task_file):
+def test_that_task_file_exists(task_file):
     with open(task_file):
         assert True
 
-def test_that_task_files_have_correct_shebang(task_file):
+def test_that_task_file_has_python_shebang(task_file):
     expected = '#!/usr/bin/python3\n'
     with open(task_file) as file:
         first_line = file.readline()
         assert first_line == expected
 
-def test_that_task_files_are_executable(task_file):
+def test_that_task_file_is_executable(task_file):
     assert os.access(TASK0, os.X_OK)
 
 def test_that_source_of_task0_file_contains_print():

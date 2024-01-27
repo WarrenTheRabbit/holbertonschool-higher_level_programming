@@ -5,6 +5,60 @@ import subprocess
 
 TASK0 = "2-print.py"
 TASK1 = "3-print_number.py"
+TASK2 = "4-print_float.py"
+TASK3 = "5-print_string.py"
+TASK4 = "6-concat.py"
+TASK5 = "7-edges.py"
+TASK6 = "8-concat_edges.py"
+TASK7 = "9-easter_egg.py"
+
+completed = 2
+
+#########################################
+# Test Data
+#########################################
+
+task_files = [TASK0, TASK1, TASK2, TASK3, TASK4, TASK5, TASK6, TASK7][:completed]
+required_task_file_line_counts = [None, 3][:completed]
+required_output = [
+    "\"Programming is like building a multilingual puzzle\n",
+    "98 Battery street\n",
+    "Float: 3.14\n",
+    "Holberton SchoolHolberton SchoolHolberton School\n\
+    Holberton\n",
+    "Welcome to Holberton School!\n",
+    """First 3 letters: Hol
+Last 2 letters: on
+Middle word: olberto
+""",
+"object-oriented programming with Python\n",
+"""The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+"""][:completed]
+
+#########################################
+# Test Fixtures
+#########################################
+
 @pytest.fixture
 def run_script():
     def _run_script(script_name):
@@ -13,7 +67,7 @@ def run_script():
                                 text=True)
         return result.stdout
     return _run_script
-required_task_file_line_counts = [None, 3]
+
 
 @pytest.fixture(params=task_files)
 def task_file(request):
@@ -45,6 +99,7 @@ def test_that_task_file_has_required_number_of_lines(file, expected_line_count):
     with open(file) as opened_file:
         lines = opened_file.readlines()
         assert len(lines) == expected_line_count
+        
 def test_that_task_file_output_is_correct(run_script):
     expected_output = '98 Battery street\n'
     actual_output = run_script(f"./{TASK1}")

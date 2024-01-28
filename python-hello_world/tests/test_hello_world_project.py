@@ -12,7 +12,7 @@ TASK5 = "7-edges.py"
 TASK6 = "8-concat_edges.py"
 TASK7 = "9-easter_egg.py"
 
-completed = 7
+completed = 8
 
 #########################################
 # Test Data

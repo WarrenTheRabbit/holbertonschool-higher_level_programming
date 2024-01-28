@@ -58,3 +58,6 @@ def test_that_task_file_has_python_shebang(task_file):
 def test_that_task_file_is_executable(task_file):
     import os
     assert os.access(task_file, os.X_OK)
+def test_that_script_runs(run_script):
+    result = run_script("./0-positive_or_negative.py")
+    assert isinstance(result, subprocess.CompletedProcess)

@@ -19,6 +19,27 @@ def run_script():
         return process
         
     return _run_script
+@pytest.fixture
+def run_task0(tmp_path, run_script):
+    def _run_script(task_file, mock_int) -> subprocess.CompletedProcess:
+        with open(task_file, "r") as opened_file:
+            script_content = opened_file.read()
+        mock_script = script_content.replace(
+            "random.randint(-10, 10)",
+            str(mock_int)
+        )
+     
+        script_path = tmp_path / "tmp_script.py"
+        print(script_path)
+        with open(script_path, "w") as opened_file:
+            opened_file.write(mock_script)
+            
+        os.chmod(script_path, os.stat(task_file).st_mode | stat.S_IEXEC)
+            
+        process:subprocess.CompletedProcess = run_script(script_path)
+        
+        return process
+
     return _run_script
 
 ########################################

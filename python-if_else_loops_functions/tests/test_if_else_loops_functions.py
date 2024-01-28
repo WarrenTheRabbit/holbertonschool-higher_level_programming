@@ -55,3 +55,6 @@ def test_that_task_file_has_python_shebang(task_file):
     with open(task_file) as opened_file:
         first_line = opened_file.readline()
         assert first_line == expected_shebang_line
+def test_that_task_file_is_executable(task_file):
+    import os
+    assert os.access(task_file, os.X_OK)

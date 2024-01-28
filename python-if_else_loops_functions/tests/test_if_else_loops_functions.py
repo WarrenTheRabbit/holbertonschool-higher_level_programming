@@ -1,4 +1,5 @@
 import pytest
+import subprocess
 
 TASK0 = "0-positive_or_negative.py"
 
@@ -9,6 +10,16 @@ TASK0 = "0-positive_or_negative.py"
 def task_file(request):
     return request.param
 
+@pytest.fixture
+def run_script():
+    def _run_script(task_file):
+        process = subprocess.run([f"{task_file}"], 
+                                 capture_output=True, 
+                                 text=True)
+        return process
+        
+    return _run_script
+    return _run_script
 
 ########################################
 # Tests

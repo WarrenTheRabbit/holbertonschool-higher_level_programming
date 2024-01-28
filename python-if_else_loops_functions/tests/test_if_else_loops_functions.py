@@ -9,7 +9,7 @@ TASK0 = "0-positive_or_negative.py"
 # Fixtures
 #######################################
 @pytest.fixture(params=[TASK0])
-def task_file(request):
+def task_file(request) -> str:
     return request.param
 
 @pytest.fixture
@@ -21,6 +21,7 @@ def run_script():
         return process
         
     return _run_script
+    
 @pytest.fixture
 def run_task0(tmp_path, run_script):
     def _run_script(task_file, mock_int) -> subprocess.CompletedProcess:
@@ -57,12 +58,15 @@ def test_that_task_file_has_python_shebang(task_file):
     with open(task_file) as opened_file:
         first_line = opened_file.readline()
         assert first_line == expected_shebang_line
+        
 def test_that_task_file_is_executable(task_file):
     import os
     assert os.access(task_file, os.X_OK)
+        
 def test_that_script_runs(run_script):
     result = run_script("./0-positive_or_negative.py")
     assert isinstance(result, subprocess.CompletedProcess)
+
 @pytest.mark.parametrize("input, expected", [
     (1, "1 is positive\n"),
     (-1, "-1 is negative\n"),

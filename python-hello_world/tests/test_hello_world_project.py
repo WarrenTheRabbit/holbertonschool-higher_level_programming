@@ -191,5 +191,12 @@ def test_that_ast_of_task1_uses_fstring():
 
 
 #########################################
-# Tests specific to task5
+# Tests specific to task7
 #########################################
+def test_that_TaskFile_HasAtMost_98TotalCharacters():
+    with open(TASK7) as file:
+        contents = file.read()
+        assert len(contents) <= 98, \
+            f"Task file {TASK7} has {len(contents)} characters, \
+                which is more than the maximum of 98 characters."
+    

@@ -61,3 +61,13 @@ def test_that_task_file_is_executable(task_file):
 def test_that_script_runs(run_script):
     result = run_script("./0-positive_or_negative.py")
     assert isinstance(result, subprocess.CompletedProcess)
+@pytest.mark.parametrize("input, expected", [
+    (1, "1 is positive\n"),
+    (-1, "-1 is negative\n"),
+    (0, "0 is zero\n")
+])
+def test_that_task0_output_is_correct(run_task0, input, expected):
+    process = run_task0("0-positive_or_negative.py", input)
+    assert isinstance(process, subprocess.CompletedProcess)
+    assert process.stdout == expected
+    

@@ -7,4 +7,4 @@ elif number > 5:
     message = "and is greater than 5"
 else:
     message = "and is less than 6 and not 0"
-print(f"Last digit of {str(number)[-1] } {message}
+print(f"Last digit of {str(number)[-1] } {message}")

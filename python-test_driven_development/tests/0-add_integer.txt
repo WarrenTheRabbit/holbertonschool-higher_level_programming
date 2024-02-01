@@ -3,3 +3,14 @@
 Test - sums two positive numbers
 >>> add(1,2)
 3
+
+Test - sum positive and negative number
+>>> add(1, -2)
+-1
+
+Test - sum positive float and positive integer
+>>> add(1.4,2)
+3
+
+Test - sum positive integer and string
+>>> add(1,"2")

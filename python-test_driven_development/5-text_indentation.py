@@ -6,20 +6,15 @@ def text_indentation(text):
     Args:
         text (str): text to be printed
     """
-    did_newline = False
     if type(text) is not str:
         raise TypeError("text must be a string")
-    if not text:
-        return
-    for i in range(len(text)):
-        if did_newline and text[i].isspace():
-            did_newline = False
+
+    new_line_needed = False
+    for char in text:
+        if new_line_needed and char == ' ':
             continue
-        if did_newline:
-            did_newline = False
-        if text[i] in ".?:":
-            did_newline = True
-            print(text[i])
-            print()
-        else:
-            print(text[i], end="")
+        print(char, end='')
+        new_line_needed = False
+        if char in '.?:':
+            print('\n\n', end='')
+            new_line_needed = True

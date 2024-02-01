@@ -1,5 +1,10 @@
 >>> print_square = __import__('4-print_square').print_square
 
+Test - error when missing argument
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
 
 Test - correct output - case: 0
 >>> print_square(0)

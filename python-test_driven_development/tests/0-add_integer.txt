@@ -1,0 +1,5 @@
+>>> add = __import__('0-add_integer').add_integer
+
+Test - sums two positive numbers
+>>> add(1,2)
+3

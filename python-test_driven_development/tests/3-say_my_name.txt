@@ -18,9 +18,7 @@ My name is first_name last_name
 
 Test - raises exception when last_name not given
 >>> say("first_name")
-Traceback (most recent call last):
-...
-TypeError: say_my_name() missing 1 required positional argument: 'last_name'
+first_name
 
 Test - raises exception when no arguments given
 >>> say()

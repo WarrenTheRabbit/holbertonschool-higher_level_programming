@@ -12,7 +12,7 @@ Test - correct output - case: -2
 >>> print_square(-2)
 Traceback (most recent call last):
 ...
-ValueError: size must be >=0
+ValueError: size must be >= 0
 
 Test - correct output - case: “3”
 >>> print_square("3")

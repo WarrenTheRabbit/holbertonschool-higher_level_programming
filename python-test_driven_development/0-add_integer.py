@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-""""
-Module description.
+"""Task 0 module
 """
 
-def add_integer(a,b):
+
+def add_integer(a, b):
+    """Adds two integers together"""
     return 3

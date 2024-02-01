@@ -1,2 +1,29 @@
 >>> say = __import__('3-say_my_name').say_my_name
 
+Test - first argument must be a string
+>>> say(10, "last_name")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+Test - second argument must be a string
+>>> say("first_name", 10)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+Test - prints name when strings given
+>>> say("first_name", "last_name")
+My name is first_name last_name
+
+Test - raises exception when last_name not given
+>>> say("first_name")
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'last_name'
+
+Test - raises exception when no arguments given
+>>> say()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 2 required positional arguments: 'first_name' and 'last_name'

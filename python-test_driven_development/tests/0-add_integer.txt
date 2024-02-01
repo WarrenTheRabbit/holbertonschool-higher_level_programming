@@ -14,3 +14,6 @@ Test - sum positive float and positive integer
 
 Test - sum positive integer and string
 >>> add(1,"2")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer

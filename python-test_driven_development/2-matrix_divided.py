@@ -25,7 +25,7 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     # check that the matrix is square
     if not all(len(row) == len(matrix) for row in matrix):
-        raise TypeError("matrix must have each row with the same size")
+        raise TypeError("Each row of the matrix must have the same size")
     if not all(isinstance(cell, (int, float))
                for row in matrix
                for cell in row):

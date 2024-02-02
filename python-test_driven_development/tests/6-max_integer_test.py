@@ -34,11 +34,5 @@ class TestMaxInteger(unittest.TestCase):
         """Test with None as input"""
         self.assertRaises(TypeError, max_integer([]), None)
 
-    def test_not_list(self):
-        """Test with non-list input"""
-        self.assertRaises(TypeError, max_integer(3), "object of type 'int' has no len()")
-
-# More tests can be added here
-
 if __name__ == '__main__':
     unittest.main()

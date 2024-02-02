@@ -1,0 +1,69 @@
+>>> import os
+>>> import sys
+>>> from pathlib import Path
+>>> current_dir = Path(__file__).parent
+>>> parent_dir = current_dir.parent
+>>> sys.path.append(str(parent_dir))
+>>> sut = __import__("2-matrix_divided").matrix_divided
+
+
+Test case: [[3]] / 3
+>>> sut([[3]], 3)
+[[1.0]]
+
+Correct output - case: [[3, 9], [12, 15]] / -3
+>>> sut([[3, 9], [12, 15]], -3)
+[[-1.0, -3.0], [-4.0, -5.0]]
+
+Correct output - case: [[3, 9], [12, 15]] / 0 => ZeroDivisionError: division by zero
+>>> sut([[3, 9], [12, 15]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+Correct output - case: [[3, 9], [12, 15, 3]] / 3 => TypeError: matrix must have each row with the same size
+>>> sut([[3, 9], [12, 15, 3]], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must have each row with the same size
+
+Correct output - case: [[3, "9"], [15, 3]] / 3 => TypeError: matrix must be a matrix (array of arrays of integers/floats)
+>>> sut([[3, "9"], [15, 3]], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test present: matrix= List of Lists of integers / div= integer
+>>> sut([[3, 9], [12, 15]], 3)
+[[1.0, 3.0], [4.0, 5.0]]
+
+Test present: matrix= List of Lists of integers / div= string
+>>> matrix = [[3, 9], [12, 15]]
+>>> sut(matrix, "3")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+Test present: matrix= list of lists of integers / div= float(inf) => all values == 0.0
+>>> sut([[3, 9], [12, 15]], float("inf"))
+[[0.0, 0.0], [0.0, 0.0]]
+
+Test present: matrix= list of lists of integers with one float(inf/nan) / div= integer
+>>> sut([[3, 9], [12, float("inf")]], 3)
+[[1.0, 3.0], [4.0, inf]]
+
+Test present: matrix= list of lists of integers with one float(inf/nan) / div= float(inf/nan)
+>>> sut([[3, 9], [12, float("inf")]], float("inf"))
+[[0.0, 0.0], [0.0, nan]]
+
+Test present: missing one argument
+>>> sut([[3, 9], [12, 15]])
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Test present: missing 2 arguments
+>>> sut()
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

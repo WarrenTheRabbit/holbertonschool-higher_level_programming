@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 def magic_string():
-    nonlocal n
-    for i in range(n):
+    for i in range(10):
         print(", ".join(["BestSchool"] * (i + 1)))

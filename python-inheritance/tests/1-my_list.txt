@@ -5,7 +5,7 @@ Setup for doctest testing of print_sorted(self) function.
 
 >>> my_list = MyList()
 >>> my_list.print_sorted()
-[2]
+[]
 
 >>> my_list = MyList()
 >>> my_list.append(1)

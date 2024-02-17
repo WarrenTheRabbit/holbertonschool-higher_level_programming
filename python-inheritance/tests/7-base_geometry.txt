@@ -76,4 +76,4 @@ Test that None raises TypeError
 Traceback (most recent call last):
 ...
 TypeError: width must be an integer
-"""
+

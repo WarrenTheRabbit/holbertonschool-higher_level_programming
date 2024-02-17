@@ -11,7 +11,7 @@ Test integer validator without arguments
 >>> bg.integer_validator()
 Traceback (most recent call last):
 ...
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+TypeError: XXXXX.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 Test integer validator with only one argument
 >>> bg.integer_validator("width")

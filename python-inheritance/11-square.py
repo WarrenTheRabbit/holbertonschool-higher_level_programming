@@ -18,4 +18,4 @@ class Square(Rectangle):
 
     def __str__(self):
         """Method to compute the string representation of a rectangle."""
-        return "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
+        return "[Square] " + str(self.__width) + "/" + str(self.__height)

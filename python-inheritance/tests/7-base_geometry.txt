@@ -39,3 +39,41 @@ Test that ValueError is raised when value is less than 0
 Traceback (most recent call last):
 ... 
 ValueError: width must be greater than 0
+
+Test that tuple raises ValueError
+>>> bg.integer_validator("width", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+"""
+
+Test that empty list raises TypeError
+>>> bg.integer_validator("width", [])
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+
+Test that boolean raises TypeError
+>>> bg.integer_validator("width", True)
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+
+Test that float raises TypeError
+>>> bg.integer_validator("width", 1.5)
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+
+test that set raises TypeError
+>>> bg.integer_validator("width", {1, 2})
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+
+Test that None raises TypeError
+>>> bg.integer_validator("width", None)
+Traceback (most recent call last):
+...
+TypeError: width must be an integer
+"""

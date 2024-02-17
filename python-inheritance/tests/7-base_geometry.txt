@@ -1,6 +1,12 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
+Test area
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception
+
 Test that TypeError is raised when value is not an integer
 >>> bg.integer_validator("width", "not_integer")
 Traceback (most recent call last):

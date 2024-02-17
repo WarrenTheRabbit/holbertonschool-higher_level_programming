@@ -45,7 +45,6 @@ Test that tuple raises ValueError
 Traceback (most recent call last):
 ...
 TypeError: width must be an integer
-"""
 
 Test that empty list raises TypeError
 >>> bg.integer_validator("width", [])

@@ -10,7 +10,6 @@ def add_item():
     """Add item to a list and save to a file."""
     filename = "add_item.json"
     path = Path(filename)
-    print(path)
     
     if not path.is_file():
         save_to_json_file([], filename)

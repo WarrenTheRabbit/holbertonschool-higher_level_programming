@@ -10,17 +10,17 @@ def add_item():
     """Add item to a list and save to a file."""
     filename = "add_item.json"
     path = Path(filename)
-    
+
     if not path.is_file():
         save_to_json_file([], filename)
-        
-    try: 
+
+    try:
         items = load_from_json_file(filename)
     except Exception:
         items = []
-        
+
     items.extend(sys.argv[1:])
-    
+
     save_to_json_file(items, filename)
 
 

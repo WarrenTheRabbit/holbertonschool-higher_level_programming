@@ -4,7 +4,10 @@
 
 
 def pascal_triangle(n):
-    """Return a list of lists of integers representing the Pascal's triangle of n"""
+    """Return a list of lists of integers representing
+    the Pascal's triangle of n"""
     if n <= 0:
         return []
-    return [[1]] + [list(map(lambda x, y: x + y, l + [0], [0] + l)) for l in pascal_triangle(n - 1)]
+    return [[1]] + [list(map(lambda x, y: x + y,
+                    lst + [0], [0] + lst))
+                    for lst in pascal_triangle(n - 1)]

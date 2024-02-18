@@ -4,4 +4,4 @@
 
 def class_to_json(obj):
     """Return the JSON representation of an object (string)"""
-    return json.dumps(obj.__dict__)
+    return obj.__dict__
